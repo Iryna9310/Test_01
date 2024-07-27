@@ -37,6 +37,7 @@
 
 - Python 3.9+
 - PostgreSQL
+- Docker
 
 ### Installation
 
@@ -75,14 +76,14 @@
    MAIL_FROM=your_mail_from
    ```
 
-6. Run migrations to set up the database:
+6. Start the server using Docker:
    ```bash
-   alembic upgrade head
+   docker-compose up --build
    ```
 
-7. Start the server:
+7. Apply database migrations:
    ```bash
-   uvicorn pymasters.main:app --reload
+   docker-compose exec web alembic upgrade head
    ```
 
 ### Testing
@@ -105,4 +106,3 @@ This application is distributed under the [Your License].
 - Author Name 1
 - Author Name 2
 - ...
-
